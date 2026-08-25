@@ -16,20 +16,20 @@
         <div class="logo">SAFE ENERGY</div>
 
         <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Importance</a>
-            <a href="#">Solutions</a>
+            <a href="#">HOME</a>
+            <a href="#">ABOUT</a>
+            <a href="#">IMPORTANCE</a>
+            <a href="#">SOLUTIONS</a>
         </div>
     </nav>
 
 
-    <!-- Hero Section -->
+    <!-- Main Page -->
     <section class="hero">
 
-        <div class="hero-content">
+        <div class="content">
 
-            <p class="small-title">POWERING A BETTER FUTURE</p>
+            <p class="subtitle">A CLEANER FUTURE STARTS TODAY</p>
 
             <h1>
                 IMPORTANCE OF<br>
@@ -37,24 +37,15 @@
             </h1>
 
             <p class="description">
-                Discover how safe and sustainable energy can protect
-                our environment and create a better future for everyone.
+                Safe energy protects our environment, improves our lives,
+                and helps build a sustainable future for generations to come.
             </p>
 
-            <button onclick="learnMore()">
-                EXPLORE MORE
-            </button>
+            <a href="#" class="button">EXPLORE MORE</a>
 
         </div>
 
     </section>
-
-
-    <script>
-        function learnMore() {
-            alert("Welcome to Safe Energy!");
-        }
-    </script>
 
 </body>
 </html>
