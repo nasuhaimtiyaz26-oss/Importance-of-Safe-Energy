@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Importance of Safe Energy</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b2114;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           HERO BACKGROUND
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(4, 25, 12, 0.82) 0%,
+                    rgba(4, 25, 12, 0.65) 45%,
+                    rgba(4, 25, 12, 0.35) 100%
+                ),
+                url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2000&q=90");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+
+            padding: 70px 7%;
+        }
+
+        /* =========================
+           TOP NAVIGATION
+        ========================= */
+
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            padding: 28px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #9cff9c;
+        }
+
+        .tag {
+            padding: 9px 18px;
+
+            border: 1px solid rgba(255,255,255,0.3);
+
+            border-radius: 30px;
+
+            background: rgba(255,255,255,0.1);
+
+            backdrop-filter: blur(10px);
+
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+
+        .main-content {
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        /* =========================
+           LEFT SIDE
+        ========================= */
+
+        .left-content {
+            max-width: 650px;
+
+            animation: fadeUp 1s ease;
+        }
+
+        .small-title {
+            font-size: 14px;
+
+            letter-spacing: 4px;
+
+            color: #a9dca9;
+
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+
+            font-weight: 900;
+
+            line-height: 1.05;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 25px;
+
+            text-transform: uppercase;
+        }
+
+        h1 span {
+            color: #9cff9c;
+        }
+
+        .intro {
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            color: rgba(255,255,255,0.82);
+
+            max-width: 600px;
+
+            margin-bottom: 30px;
+        }
+
+        .explore-btn {
+            display: inline-block;
+
+            padding: 14px 28px;
+
+            background: #8ee98e;
+
+            color: #102818;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            border-radius: 30px;
+
+            transition: 0.3s;
+        }
+
+        .explore-btn:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 30px rgba(142,233,142,0.3);
+        }
+
+        /* =========================
+           RIGHT SIDE DATA EXPLORER
+        ========================= */
+
+        .data-panel {
+            background: rgba(255,255,255,0.12);
+
+            border: 1px solid rgba(255,255,255,0.25);
+
+            backdrop-filter: blur(18px);
+
+            -webkit-backdrop-filter: blur(18px);
+
+            border-radius: 22px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.25);
+
+            animation: slideIn 1.2s ease;
+        }
+
+        .data-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 20px;
+        }
+
+        .data-header h2 {
+            font-size: 20px;
+        }
+
+        .owid {
+            font-size: 11px;
+
+            padding: 7px 10px;
+
+            border-radius: 20px;
+
+            background: rgba(156,255,156,0.15);
+
+            color: #9cff9c;
+        }
+
+        .data-description {
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            color: rgba(255,255,255,0.7);
+
+            margin-bottom: 20px;
+        }
+
+        /* Data Explorer frame */
+
+        .explorer {
+            width: 100%;
+
+            height: 300px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background: white;
+        }
+
+        .source {
+            margin-top: 12px;
+
+            font-size: 11px;
+
+            color: rgba(255,255,255,0.6);
+
+            text-align: right;
+        }
+
+        .source a {
+            color: #9cff9c;
+
+            text-decoration: none;
+        }
+
+        /* =========================
+           BOTTOM INFO
+        ========================= */
+
+        .bottom-info {
+            position: absolute;
+
+            bottom: 25px;
+
+            left: 7%;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* =========================
+           ANIMATION
+        ========================= */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes slideIn {
+
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .hero {
+                padding: 110px 25px 70px;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            .bottom-info {
+                display: none;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            h1 {
+                font-size: 38px;
+            }
+
+            .data-panel {
+                padding: 18px;
+            }
+
+            .explorer {
+                height: 260px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- TOP BAR -->
+
+    <header class="top-bar">
+
+        <div class="logo">
+            SAFE<span>ENERGY</span>
+        </div>
+
+        <div class="tag">
+            CLEAN • SAFE • SUSTAINABLE
+        </div>
+
+    </header>
+
+
+    <!-- MAIN HERO -->
+
+    <section class="hero">
+
+        <div class="main-content">
+
+            <!-- LEFT -->
+
+            <div class="left-content">
+
+                <div class="small-title">
+                    ENERGY FOR A BETTER FUTURE
+                </div>
+
+                <h1>
+                    IMPORTANCE OF
+                    <br>
+                    <span>SAFE ENERGY</span>
+                </h1>
+
+                <p class="intro">
+                    Safe and sustainable energy plays a vital role in
+                    protecting our environment, supporting economic
+                    development and improving the quality of life
+                    for future generations.
+                </p>
+
+                <a
+                    href="https://ourworldindata.org/energy"
+                    target="_blank"
+                    class="explore-btn"
+                >
+                    Explore Energy Data →
+                </a>
+
+            </div>
+
+
+            <!-- RIGHT DATA -->
+
+            <div class="data-panel">
+
+                <div class="data-header">
+
+                    <h2>
+                        Energy Data Explorer
+                    </h2>
+
+                    <div class="owid">
+                        OUR WORLD IN DATA
+                    </div>
+
+                </div>
+
+                <p class="data-description">
+
+                    Explore energy-related data including energy
+                    consumption, sources and the transition towards
+                    cleaner energy.
+
+                </p>
+
+
+                <!-- OWID DATA EXPLORER -->
+
+                <iframe
+                    class="explorer"
+                    src="https://ourworldindata.org/grapher/energy-consumption-by-source?tab=chart"
+                    loading="lazy"
+                    title="Our World in Data Energy Explorer">
+                </iframe>
+
+
+                <div class="source">
+
+                    Source:
+                    <a
+                        href="https://ourworldindata.org/energy"
+                        target="_blank"
+                    >
+                        Our World in Data – Energy
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="bottom-info">
+            POWERING A CLEANER • SAFER • SUSTAINABLE WORLD
+        </div>
+
+    </section>
+
+</body>
+</html>
